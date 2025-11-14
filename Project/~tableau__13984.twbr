@@ -1,0 +1,2735 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.1003.1601                               -->
+<workbook original-version='18.1' source-build='2025.2.4 (20252.25.1003.1601)' source-platform='win' version='18.1' xml:base='https://public.tableau.com' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <BasicButtonObject />
+    <BasicButtonObjectTextSupport />
+    <CollapsiblePane />
+    <_.fcp.IndividualControlFormatting.true...IndividualControlFormatting />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <WorksheetBackgroundTransparency />
+    <ZoneBackgroundTransparency />
+    <ZoneVisibilityControl />
+  </document-format-change-manifest>
+  <repository-location id='project_17630163732620' path='/workbooks' revision='1.1' />
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style>
+    <style-rule element='animation'>
+      <format attr='animation-style' value='as-phased' />
+      <format attr='animation-duration' value='0.30000001192092896' />
+      <format attr='animation-on' value='ao-on' />
+    </style-rule>
+  </style>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Select Dimensions' datatype='string' name='[Spend Parameter]' param-domain-type='list' role='measure' type='nominal' value='&quot;Category&quot;'>
+        <calculation class='tableau' formula='&quot;Category&quot;' />
+        <members>
+          <member value='&quot;Occupation&quot;' />
+          <member value='&quot;City&quot;' />
+          <member value='&quot;Payment Type&quot;' />
+          <member value='&quot;Category&quot;' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='fact_spends+ (project)' inline='true' name='federated.0exfm2606sm7js12f65cw0i8nwht' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='project' name='excel-direct.13efog911kfgku18x5isf0cg1igt'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='C:/Users/shaha/OneDrive/Documents/Tableau/project.xlsx' interpretationMode='0' password='' server='' validate='no' workgroup-auth-mode='as-is' />
+          </named-connection>
+        </named-connections>
+        <relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[fact_spends].[customer_id]' />
+              <expression op='[dim_table].[customer_id]' />
+            </expression>
+          </clause>
+          <relation connection='excel-direct.13efog911kfgku18x5isf0cg1igt' name='fact_spends' table='[fact_spends$]' type='table'>
+            <columns gridOrigin='A1:E10001:no:A1:E10001:0' header='yes' outcome='6'>
+              <column datatype='string' name='customer_id' ordinal='0' />
+              <column datatype='date' date-parse-format='MMMM' name='month' ordinal='1' />
+              <column datatype='string' name='category' ordinal='2' />
+              <column datatype='string' name='payment_type' ordinal='3' />
+              <column datatype='integer' name='spend' ordinal='4' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.13efog911kfgku18x5isf0cg1igt' name='dim_table' table='[dim_table$]' type='table'>
+            <columns gridOrigin='A1:G4001:no:A1:G4001:0' header='yes' outcome='6'>
+              <column datatype='string' name='customer_id' ordinal='0' />
+              <column datatype='string' name='age_group' ordinal='1' />
+              <column datatype='string' name='city' ordinal='2' />
+              <column datatype='string' name='occupation' ordinal='3' />
+              <column datatype='string' name='gender' ordinal='4' />
+              <column datatype='string' name='marital status' ordinal='5' />
+              <column datatype='integer' name='avg_income' ordinal='6' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[age_group]' value='[dim_table].[age_group]' />
+          <map key='[avg_income]' value='[dim_table].[avg_income]' />
+          <map key='[category]' value='[fact_spends].[category]' />
+          <map key='[city]' value='[dim_table].[city]' />
+          <map key='[customer_id (dim!table)]' value='[dim_table].[customer_id]' />
+          <map key='[customer_id]' value='[fact_spends].[customer_id]' />
+          <map key='[gender]' value='[dim_table].[gender]' />
+          <map key='[marital status]' value='[dim_table].[marital status]' />
+          <map key='[month]' value='[fact_spends].[month]' />
+          <map key='[occupation]' value='[dim_table].[occupation]' />
+          <map key='[payment_type]' value='[fact_spends].[payment_type]' />
+          <map key='[spend]' value='[fact_spends].[spend]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[fact_spends]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:E10001:no:A1:E10001:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[dim_table]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:G4001:no:A1:G4001:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[customer_id]</local-name>
+            <parent-name>[fact_spends]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RIN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[month]</local-name>
+            <parent-name>[fact_spends]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RIN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>category</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[category]</local-name>
+            <parent-name>[fact_spends]</parent-name>
+            <remote-alias>category</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RIN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>payment_type</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[payment_type]</local-name>
+            <parent-name>[fact_spends]</parent-name>
+            <remote-alias>payment_type</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RIN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>spend</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[spend]</local-name>
+            <parent-name>[fact_spends]</parent-name>
+            <remote-alias>spend</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>customer_id</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[customer_id (dim!table)]</local-name>
+            <parent-name>[dim_table]</parent-name>
+            <remote-alias>customer_id</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RIN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age_group</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[age_group]</local-name>
+            <parent-name>[dim_table]</parent-name>
+            <remote-alias>age_group</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RIN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[dim_table]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RIN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>occupation</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[occupation]</local-name>
+            <parent-name>[dim_table]</parent-name>
+            <remote-alias>occupation</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RIN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[dim_table]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RIN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>marital status</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[marital status]</local-name>
+            <parent-name>[dim_table]</parent-name>
+            <remote-alias>marital status</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RIN_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_income</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[avg_income]</local-name>
+            <parent-name>[dim_table]</parent-name>
+            <remote-alias>avg_income</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[avg:Calculation_1658169093206007808:qk]&quot;' value=' Average Spend Per Customer' />
+          <alias key='&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[max:Calculation_1658169093208977409:qk]&quot;' value=' Top Customer Spend' />
+          <alias key='&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]&quot;' value=' Spend' />
+          <alias key='&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872284262412:qk]&quot;' value='Per Customer' />
+        </aliases>
+      </column>
+      <column caption='Dimension Para' datatype='string' name='[Calculation_128352594910121985]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='CASE [Parameters].[Spend Parameter]&#13;&#10;WHEN &quot;Occupation&quot; THEN [occupation]&#13;&#10;WHEN &quot;Payment Type&quot; THEN [payment_type]&#13;&#10;WHEN &quot;City&quot; THEN [city]&#13;&#10;WHEN &quot;Category&quot; THEN [category]&#13;&#10;END' />
+      </column>
+      <column caption='Average Spend Per Customer' datatype='integer' name='[Calculation_1658169093206007808]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [customer_id]:sum([spend]) }' />
+      </column>
+      <column caption='Top Customer Spend' datatype='integer' name='[Calculation_1658169093208977409]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{fixed [customer_id] :sum([spend]) }' />
+      </column>
+      <column caption='Customer Monthly Spend' datatype='integer' name='[Calculation_1658169093217947651]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ fixed  [month] ,[customer_id] : sum([spend])}' />
+      </column>
+      <column caption='Total Spend' datatype='integer' name='[Calculation_2206200872162750464]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([spend])' />
+      </column>
+      <column caption='Average Spend' datatype='real' name='[Calculation_2206200872162869249]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='AVG([spend])' />
+      </column>
+      <column caption='Total Customers' datatype='integer' name='[Calculation_2206200872163016706]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNTD([customer_id])' />
+      </column>
+      <column caption='Transaction Count' datatype='integer' name='[Calculation_2206200872163151875]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT([customer_id])' />
+      </column>
+      <column caption='Spend Per Income' datatype='real' name='[Calculation_2206200872163278852]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='sum([spend])/sum([avg_income])' />
+      </column>
+      <column caption='Customer % by Occupation' datatype='real' name='[Calculation_2206200872231444490]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNTD([customer_id]) / TOTAL(COUNTD([customer_id]))'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='Average Spend  Per Customer' datatype='real' name='[Calculation_2206200872284262412]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([spend]) / COUNTD([customer_id])' />
+      </column>
+      <column caption='fact_spends' datatype='table' name='[__tableau_internal_object_id__].[fact!spends_8E43904281944779B740C6114D264445]' role='measure' type='quantitative' />
+      <column caption='Age Group' datatype='string' name='[age_group]' role='dimension' type='nominal' />
+      <column caption='Avg Income' datatype='integer' name='[avg_income]' role='measure' type='quantitative' />
+      <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Customer Id (Dim!Table)' datatype='string' name='[customer_id (dim!table)]' role='dimension' type='nominal' />
+      <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+      <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+      <column caption='Marital Status' datatype='string' name='[marital status]' role='dimension' type='nominal' />
+      <column caption='Month' datatype='date' datatype-customized='true' name='[month]' role='dimension' type='ordinal' />
+      <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+      <column caption='Payment Type' datatype='string' name='[payment_type]' role='dimension' type='nominal' />
+      <column caption='Spend' datatype='integer' name='[spend]' role='measure' type='quantitative' />
+      <column-instance column='[Calculation_1658169093206007808]' derivation='Avg' name='[avg:Calculation_1658169093206007808:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1658169093208977409]' derivation='Max' name='[max:Calculation_1658169093208977409:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+      <column-instance column='[occupation]' derivation='None' name='[none:occupation:nk]' pivot='key' type='nominal' />
+      <column-instance column='[payment_type]' derivation='None' name='[none:payment_type:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_2206200872162869249]' derivation='User' name='[usr:Calculation_2206200872162869249:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_2206200872284262412]' derivation='User' name='[usr:Calculation_2206200872284262412:qk]' pivot='key' type='quantitative' />
+      <group caption='Action (City)' hidden='true' name='[Action (City)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[city]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Gender)' hidden='true' name='[Action (Gender)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[gender]' />
+        </groupfilter>
+      </group>
+      <group caption='Action (Occupation)' hidden='true' name='[Action (Occupation)]' name-style='unqualified' user:auto-column='sheet_link'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[occupation]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='Data/TableauTemp/#TableauTemp_1j0aly300ick8t1finfl21w87kqa.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='11/11/2025 06:36:39 AM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table'>
+            <columns>
+              <column datatype='date' date-parse-format='MMMM' name='month' />
+            </columns>
+          </relation>
+          <cols>
+            <map key='[age_group]' value='[Extract].[age_group]' />
+            <map key='[avg_income]' value='[Extract].[avg_income]' />
+            <map key='[category]' value='[Extract].[category]' />
+            <map key='[city]' value='[Extract].[city]' />
+            <map key='[customer_id (dim!table)]' value='[Extract].[customer_id]' />
+            <map key='[customer_id]' value='[Extract].[customer_id1]' />
+            <map key='[gender]' value='[Extract].[gender]' />
+            <map key='[marital status]' value='[Extract].[marital status]' />
+            <map key='[month]' value='[Extract].[month]' />
+            <map key='[occupation]' value='[Extract].[occupation]' />
+            <map key='[payment_type]' value='[Extract].[payment_type]' />
+            <map key='[spend]' value='[Extract].[spend]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>customer_id1</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_id]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>customer_id1</remote-alias>
+              <ordinal>0</ordinal>
+              <family>fact_spends</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>21908</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RIN_S2' />
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>month</remote-name>
+              <remote-type>7</remote-type>
+              <local-name>[month]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>month</remote-alias>
+              <ordinal>1</ordinal>
+              <family>fact_spends</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RIN_S2' />
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>category</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[category]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>category</remote-alias>
+              <ordinal>2</ordinal>
+              <family>fact_spends</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>9</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RIN_S2' />
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>payment_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[payment_type]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>payment_type</remote-alias>
+              <ordinal>3</ordinal>
+              <family>fact_spends</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RIN_S2' />
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>spend</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[spend]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>spend</remote-alias>
+              <ordinal>4</ordinal>
+              <family>fact_spends</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>9510</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>customer_id</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[customer_id (dim!table)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>customer_id</remote-alias>
+              <ordinal>5</ordinal>
+              <family>dim_table</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>21908</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RIN_S2' />
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>age_group</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[age_group]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>age_group</remote-alias>
+              <ordinal>6</ordinal>
+              <family>dim_table</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RIN_S2' />
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>city</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[city]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>city</remote-alias>
+              <ordinal>7</ordinal>
+              <family>dim_table</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RIN_S2' />
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>occupation</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[occupation]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>occupation</remote-alias>
+              <ordinal>8</ordinal>
+              <family>dim_table</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RIN_S2' />
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>gender</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[gender]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>gender</remote-alias>
+              <ordinal>9</ordinal>
+              <family>dim_table</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RIN_S2' />
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>marital status</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[marital status]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>marital status</remote-alias>
+              <ordinal>10</ordinal>
+              <family>dim_table</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RIN_S2' />
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>avg_income</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[avg_income]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>avg_income</remote-alias>
+              <ordinal>11</ordinal>
+              <family>dim_table</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>20710</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[fact!spends_8E43904281944779B740C6114D264445]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' rowDisplayCount='10000' show-aliased-fields='true' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:gender:nk]&#10;[:Measure Names]' type='palette'>
+            <map to='#4b6fff'>
+              <multibucket>
+                <bucket>&quot;Female&quot;</bucket>
+                <bucket>&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872218062854:qk]&quot;</bucket>
+              </multibucket>
+            </map>
+            <map to='#9f7aea'>
+              <multibucket>
+                <bucket>&quot;Male&quot;</bucket>
+                <bucket>&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872218062854:qk]&quot;</bucket>
+              </multibucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:payment_type:nk]' type='palette'>
+            <map to='#6085ff'>
+              <bucket>&quot;UPI&quot;</bucket>
+            </map>
+            <map to='#8ba0ff'>
+              <bucket>&quot;Net Banking&quot;</bucket>
+            </map>
+            <map to='#a799ea'>
+              <bucket>&quot;Debit Card&quot;</bucket>
+            </map>
+            <map to='#b77cea'>
+              <bucket>&quot;Credit Card&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:occupation:nk]' type='palette'>
+            <map to='#223fff'>
+              <bucket>&quot;Freelancers&quot;</bucket>
+            </map>
+            <map to='#4b6fff'>
+              <bucket>&quot;Government Employees&quot;</bucket>
+            </map>
+            <map to='#4c30ea'>
+              <bucket>&quot;Salaried IT Employees&quot;</bucket>
+            </map>
+            <map to='#868bea'>
+              <bucket>&quot;Salaried Other Employees&quot;</bucket>
+            </map>
+            <map to='#979cff'>
+              <bucket>&quot;Business Owners&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;India&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Select Dimensions' datatype='string' name='[Spend Parameter]' param-domain-type='list' role='measure' type='nominal' value='&quot;Category&quot;'>
+          <calculation class='tableau' formula='&quot;Category&quot;' />
+        </column>
+      </datasource-dependencies>
+      <object-graph>
+        <objects>
+          <object caption='fact_spends' id='fact!spends_8E43904281944779B740C6114D264445'>
+            <properties context=''>
+              <relation join='inner' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[fact_spends].[customer_id]' />
+                    <expression op='[dim_table].[customer_id]' />
+                  </expression>
+                </clause>
+                <relation connection='excel-direct.13efog911kfgku18x5isf0cg1igt' name='fact_spends' table='[fact_spends$]' type='table'>
+                  <columns gridOrigin='A1:E10001:no:A1:E10001:0' header='yes' outcome='6'>
+                    <column datatype='string' name='customer_id' ordinal='0' />
+                    <column datatype='date' date-parse-format='MMMM' name='month' ordinal='1' />
+                    <column datatype='string' name='category' ordinal='2' />
+                    <column datatype='string' name='payment_type' ordinal='3' />
+                    <column datatype='integer' name='spend' ordinal='4' />
+                  </columns>
+                </relation>
+                <relation connection='excel-direct.13efog911kfgku18x5isf0cg1igt' name='dim_table' table='[dim_table$]' type='table'>
+                  <columns gridOrigin='A1:G4001:no:A1:G4001:0' header='yes' outcome='6'>
+                    <column datatype='string' name='customer_id' ordinal='0' />
+                    <column datatype='string' name='age_group' ordinal='1' />
+                    <column datatype='string' name='city' ordinal='2' />
+                    <column datatype='string' name='occupation' ordinal='3' />
+                    <column datatype='string' name='gender' ordinal='4' />
+                    <column datatype='string' name='marital status' ordinal='5' />
+                    <column datatype='integer' name='avg_income' ordinal='6' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table'>
+                <columns>
+                  <column datatype='date' date-parse-format='MMMM' name='month' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <action caption='Filter 1 (generated)' name='[Action1_C7E2E396E83542088B21B1E00A9A300D]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashbboard 1' type='sheet' worksheet='Gender-wise Spending Split' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashbboard 1' />
+      </command>
+    </action>
+    <action caption='Filter 2 (generated)' name='[Action2_4F84CBC7B43D49FCAC32AC2F6D0EBC08]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashbboard 1' type='sheet' worksheet='Occupation-wise Customer Distribution' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashbboard 1' />
+      </command>
+    </action>
+    <action caption='Filter 3 (generated)' name='[Action3_37229FB5DC3C4AABB814CD2372708FD6]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashbboard 1' type='sheet' worksheet='Customer Distribution by Occupation' />
+      <command command='tsc:tsl-filter'>
+        <param name='exclude' value='Total Customers KPI' />
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashbboard 1' />
+      </command>
+    </action>
+    <action caption='Filter 4 (generated)' name='[Action4_FDDE4150DACD43718CDC51A4CCC286FB]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Dashbboard 1' type='sheet' worksheet='City-wise Average Spend' />
+      <command command='tsc:tsl-filter'>
+        <param name='special-fields' value='all' />
+        <param name='target' value='Dashbboard 1' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='City-wise Average Spend'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='11'>Top Cities Driving Customer Spending</run>
+            <run>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+            <column caption='Average Spend' datatype='real' name='[Calculation_2206200872162869249]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='AVG([spend])' />
+            </column>
+            <column caption='Age Group' datatype='string' name='[age_group]' role='dimension' type='nominal' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+            <column-instance column='[age_group]' derivation='None' name='[none:age_group:nk]' pivot='key' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+            <column-instance column='[occupation]' derivation='None' name='[none:occupation:nk]' pivot='key' type='nominal' />
+            <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+            <column caption='Spend' datatype='integer' name='[spend]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_2206200872162869249]' derivation='User' name='[usr:Calculation_2206200872162869249:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Gender)]'>
+            <groupfilter function='level-members' level='[gender]' user:ui-action-filter='[Action1_C7E2E396E83542088B21B1E00A9A300D]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Occupation)]'>
+            <groupfilter function='level-members' level='[occupation]' user:ui-action-filter='[Action2_4F84CBC7B43D49FCAC32AC2F6D0EBC08]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]' filter-group='3'>
+            <groupfilter function='level-members' level='[none:age_group:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]' filter-group='7'>
+            <groupfilter function='level-members' level='[none:city:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]' filter-group='4'>
+            <groupfilter function='level-members' level='[none:gender:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' filter-group='6'>
+            <groupfilter function='level-members' level='[none:occupation:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Gender)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Occupation)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+            <format attr='tick-color' scope='cols' value='#00000000' />
+            <format attr='tick-color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='#ffffff' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='band-color' scope='rows' value='#ffffff' />
+            <format attr='band-color' scope='cols' value='#000000' />
+            <format attr='background-color' value='#000000' />
+            <format attr='background-color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='#000000' />
+            <format attr='background-color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]' value='#000000' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]' value='#ffffff' />
+            <format attr='font-weight' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]' value='bold' />
+            <format attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='#ffffff' />
+            <format attr='font-size' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='10' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' min='443.375904832' num-steps='4' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#4b6fff</color>
+                <color>#6683f8</color>
+                <color>#8097f2</color>
+                <color>#98a9ec</color>
+                <color>#afbae5</color>
+                <color>#c5cadf</color>
+                <color>#d9d9d9</color>
+                <color>#d0cadb</color>
+                <color>#c6bbde</color>
+                <color>#bdabe1</color>
+                <color>#b39be4</color>
+                <color>#a98ae7</color>
+                <color>#9f7aea</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='rows' value='#ffffff' />
+            <format attr='band-color' scope='cols' value='#000000' />
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='band-size' scope='cols' value='3' />
+            <format attr='band-size' scope='rows' value='3' />
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='fill-above' id='refline1' value='#00000000' />
+            <format attr='fill-below' id='refline1' value='#00000000' />
+            <format attr='line-visibility' id='refline1' value='on' />
+            <format attr='line-pattern-only' id='refline1' value='solid' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' />
+            </encodings>
+            <reference-line axis-column='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-pane' value-column='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' z-order='1' />
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+                <format attr='text-orientation' value='0' />
+                <format attr='wrap' value='on' />
+              </style-rule>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='auto' />
+                <format attr='font-family' value='Tableau Bold' />
+                <format attr='font-size' value='9' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-range-scope' value='table' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-field' value='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' />
+                <format attr='mark-color' value='#f28e2b' />
+                <format attr='mark-transparency' value='255' />
+                <format attr='has-stroke' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]</rows>
+        <cols>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]</cols>
+      </table>
+      <simple-id uuid='{D4FA4ACB-89DC-4C71-AA45-0D6935B2125C}' />
+    </worksheet>
+    <worksheet name='Customer Distribution by Occupation'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='11'>Average Spend by Age Segment</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+            <column caption='Average Spend' datatype='real' name='[Calculation_2206200872162869249]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='AVG([spend])' />
+            </column>
+            <column caption='Age Group' datatype='string' name='[age_group]' role='dimension' type='nominal' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+            <column-instance column='[age_group]' derivation='None' name='[none:age_group:nk]' pivot='key' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+            <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+            <column caption='Spend' datatype='integer' name='[spend]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_2206200872162869249]' derivation='User' name='[usr:Calculation_2206200872162869249:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (City)]'>
+            <groupfilter function='level-members' level='[city]' user:ui-action-filter='[Action4_FDDE4150DACD43718CDC51A4CCC286FB]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Gender)]'>
+            <groupfilter function='level-members' level='[gender]' user:ui-action-filter='[Action1_C7E2E396E83542088B21B1E00A9A300D]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Occupation)]'>
+            <groupfilter function='level-members' level='[occupation]' user:ui-action-filter='[Action2_4F84CBC7B43D49FCAC32AC2F6D0EBC08]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]' filter-group='3'>
+            <groupfilter function='level-members' level='[none:age_group:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]' filter-group='7'>
+            <groupfilter function='level-members' level='[none:city:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]' filter-group='4'>
+            <groupfilter function='level-members' level='[none:gender:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Gender)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Occupation)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (City)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='#ffffff' />
+            <format attr='font-family' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='Tableau Bold' />
+            <format attr='font-weight' data-class='subtotal' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='bold' />
+            <format attr='font-weight' data-class='total' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='normal' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='band-color' scope='rows' value='#000000' />
+            <format attr='background-color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='#000000' />
+            <format attr='background-color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]' value='#000000' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='color' value='#ffffff' />
+            <format attr='font-weight' value='bold' />
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='#ffffff' />
+            <format attr='font-family' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' value='Tableau Bold' />
+            <format attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]' value='#ffffff' />
+            <format attr='font-weight' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]' value='bold' />
+            <format attr='font-size' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]' value='10' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' num-steps='4' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#4b6fff</color>
+                <color>#6683f8</color>
+                <color>#8097f2</color>
+                <color>#98a9ec</color>
+                <color>#afbae5</color>
+                <color>#c5cadf</color>
+                <color>#d9d9d9</color>
+                <color>#d0cadb</color>
+                <color>#c6bbde</color>
+                <color>#bdabe1</color>
+                <color>#b39be4</color>
+                <color>#a98ae7</color>
+                <color>#9f7aea</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='band-color' scope='rows' value='#000000' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#000000' />
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='color' value='#000000' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='line-pattern-only' scope='cols' value='solid' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-color' value='#4e79a7' />
+                <format attr='size' value='1.6591712236404419' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]</rows>
+        <cols>[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]</cols>
+      </table>
+      <simple-id uuid='{6DC071FB-88A2-4503-90FC-174F443D34FA}' />
+    </worksheet>
+    <worksheet name='Gender-wise Spending Split'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='11'>Spending Behavior Across Genders</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+            <column caption='AVG(0)' datatype='real' name='[Calculation_2206200872218062854]' role='measure' type='quantitative' user:unnamed='Age group distribution'>
+              <calculation class='tableau' formula='AVG(0)' />
+            </column>
+            <column caption='AVG(0)' datatype='real' name='[Calculation_2206200872218116104]' role='measure' type='quantitative' user:unnamed='Age group distribution'>
+              <calculation class='tableau' formula='AVG(0)' />
+            </column>
+            <column caption='Age Group' datatype='string' name='[age_group]' role='dimension' type='nominal' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+            <column-instance column='[age_group]' derivation='None' name='[none:age_group:nk]' pivot='key' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+            <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+            <column caption='Spend' datatype='integer' name='[spend]' role='measure' type='quantitative' />
+            <column-instance column='[spend]' derivation='Sum' name='[sum:spend:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2206200872218062854]' derivation='User' name='[usr:Calculation_2206200872218062854:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2206200872218116104]' derivation='User' name='[usr:Calculation_2206200872218116104:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (City)]'>
+            <groupfilter function='level-members' level='[city]' user:ui-action-filter='[Action4_FDDE4150DACD43718CDC51A4CCC286FB]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Occupation)]'>
+            <groupfilter function='level-members' level='[occupation]' user:ui-action-filter='[Action2_4F84CBC7B43D49FCAC32AC2F6D0EBC08]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]' filter-group='3'>
+            <groupfilter function='level-members' level='[none:age_group:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]' filter-group='7'>
+            <groupfilter function='level-members' level='[none:city:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]' filter-group='4'>
+            <groupfilter function='level-members' level='[none:gender:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Occupation)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (City)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872218062854:qk]' field-type='quantitative' max='0.0' min='0.0' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872218116104:qk]' field-type='quantitative' fold='true' max='0.0' min='0.0' range-type='fixed' scope='cols' type='space' />
+            <format attr='display' class='0' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872218062854:qk]' scope='cols' value='false' />
+            <format attr='display' class='0' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872218116104:qk]' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='color' data-class='total' scope='rows' value='#000000' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='band-color' scope='rows' value='#dfedeb' />
+            <format attr='background-color' scope='cols' value='#ffffff' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' scope='rows' value='#000000' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='background-color' data-class='subtotal' value='#000000' />
+            <format attr='border-width' data-class='total' value='0' />
+            <format attr='border-style' data-class='total' value='none' />
+            <format attr='band-color' scope='rows' value='#ffffff' />
+            <format attr='band-color' scope='cols' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#000000' />
+            <format attr='band-size' scope='rows' value='1' />
+            <format attr='band-size' scope='cols' value='1' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='animation'>
+            <format attr='animation-style' value='as-phased' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872218062854:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]' />
+              <wedge-size column='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]' />
+              <color column='[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]' />
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>Gender:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Spend:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]>]]></run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontcolor='#ffffff'>&lt;</run>
+                <run bold='true' fontcolor='#ffffff'>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]</run>
+                <run bold='true' fontcolor='#ffffff'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='size' value='3.3922650814056396' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872218116104:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run bold='true' fontcolor='#757575'>Spend:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]>]]></run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontcolor='#ffffff' fontsize='12'>&lt;</run>
+                <run bold='true' fontcolor='#ffffff' fontsize='12'>[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]</run>
+                <run bold='true' fontcolor='#ffffff' fontsize='12'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='2.4640884399414062' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-color' value='#000000' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>([federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872218062854:qk] + [federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872218116104:qk])</cols>
+      </table>
+      <simple-id uuid='{2FCF600A-736F-4195-B20F-D4AC596BA666}' />
+    </worksheet>
+    <worksheet name='Monthly Spend Trend'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='14' italic='true'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+            <column caption='Customer Monthly Spend' datatype='integer' name='[Calculation_1658169093217947651]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ fixed  [month] ,[customer_id] : sum([spend])}' />
+            </column>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column-instance column='[month]' derivation='Month' name='[mn:month:ok]' pivot='key' type='ordinal' />
+            <column caption='Month' datatype='date' datatype-customized='true' name='[month]' role='dimension' type='ordinal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[occupation]' derivation='None' name='[none:occupation:nk]' pivot='key' type='nominal' />
+            <column-instance column='[payment_type]' derivation='None' name='[none:payment_type:nk]' pivot='key' type='nominal' />
+            <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+            <column caption='Payment Type' datatype='string' name='[payment_type]' role='dimension' type='nominal' />
+            <column caption='Spend' datatype='integer' name='[spend]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1658169093217947651]' derivation='Sum' name='[sum:Calculation_1658169093217947651:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]' filter-group='8'>
+            <groupfilter function='level-members' level='[none:category:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' filter-group='5'>
+            <groupfilter function='level-members' level='[none:occupation:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]' filter-group='9'>
+            <groupfilter function='level-members' level='[none:payment_type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:Calculation_1658169093217947651:qk]' num-steps='4' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#4b6fff</color>
+                <color>#6683f8</color>
+                <color>#8097f2</color>
+                <color>#98a9ec</color>
+                <color>#afbae5</color>
+                <color>#c5cadf</color>
+                <color>#d9d9d9</color>
+                <color>#d0c8db</color>
+                <color>#c7b7de</color>
+                <color>#bda6e1</color>
+                <color>#b494e4</color>
+                <color>#aa81e7</color>
+                <color>#a06fea</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='color' value='#ffffff' />
+            <format attr='font-family' value='Bookman Old Style' />
+            <format attr='font-weight' value='normal' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:Calculation_1658169093217947651:qk]' />
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:Calculation_1658169093217947651:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true'>&lt;</run>
+                <run bold='true'>[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:Calculation_1658169093217947651:qk]</run>
+                <run bold='true'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:Calculation_1658169093217947651:qk]</rows>
+        <cols>[federated.0exfm2606sm7js12f65cw0i8nwht].[mn:month:ok]</cols>
+      </table>
+      <simple-id uuid='{8B7FDE12-77B0-4265-BC69-39279C6DA2B2}' />
+    </worksheet>
+    <worksheet name='Occupation wise spending'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='12'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[occupation]' derivation='None' name='[none:occupation:nk]' pivot='key' type='nominal' />
+            <column-instance column='[payment_type]' derivation='None' name='[none:payment_type:nk]' pivot='key' type='nominal' />
+            <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+            <column caption='Payment Type' datatype='string' name='[payment_type]' role='dimension' type='nominal' />
+            <column caption='Spend' datatype='integer' name='[spend]' role='measure' type='quantitative' />
+            <column-instance column='[spend]' derivation='Sum' name='[sum:spend:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]' filter-group='8'>
+            <groupfilter function='level-members' level='[none:category:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' filter-group='5'>
+            <groupfilter function='level-members' level='[none:occupation:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]' filter-group='9'>
+            <groupfilter function='level-members' level='[none:payment_type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]' value='c&quot;₹ &quot;#,##0.00;&quot;₹ &quot;-#,##0.00' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' />
+              <wedge-size column='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]' />
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' />
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontalignment='0' fontname='Bookman Old Style' fontsize='8'><![CDATA[<[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]>]]></run>
+                <run fontalignment='0'>Æ&#10;</run>
+                <run bold='true' fontalignment='0' fontname='Bookman Old Style' fontsize='8'><![CDATA[<[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+                <format attr='vertical-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='1.7031491994857788' />
+                <format attr='mark-transparency' value='219' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{57B9707B-C86D-46F8-B1F3-BBC02E11315F}' />
+    </worksheet>
+    <worksheet name='Occupation-wise Customer Distribution'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='11'>Customer Mix by Occupation Segment</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+            <column caption='Customer % by Occupation' datatype='real' name='[Calculation_2206200872231444490]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([customer_id]) / TOTAL(COUNTD([customer_id]))'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column-instance column='[avg_income]' derivation='Avg' name='[avg:avg_income:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Income' datatype='integer' name='[avg_income]' role='measure' type='quantitative' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[customer_id]' derivation='CountD' name='[ctd:customer_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[occupation]' derivation='None' name='[none:occupation:nk]' pivot='key' type='nominal' />
+            <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_2206200872231444490]' derivation='User' name='[usr:Calculation_2206200872231444490:qk]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (City)]'>
+            <groupfilter function='level-members' level='[city]' user:ui-action-filter='[Action4_FDDE4150DACD43718CDC51A4CCC286FB]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Gender)]'>
+            <groupfilter function='level-members' level='[gender]' user:ui-action-filter='[Action1_C7E2E396E83542088B21B1E00A9A300D]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]' filter-group='7'>
+            <groupfilter function='level-members' level='[none:city:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' filter-group='6'>
+            <groupfilter function='level-members' level='[none:occupation:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Gender)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (City)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='tick-color' scope='cols' value='#00000000' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872231444490:qk]' value='p0.00%' />
+            <format attr='color' value='#ffffff' />
+            <format attr='border-width' scope='rows' value='0' />
+            <format attr='border-style' scope='rows' value='none' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='border-width' data-class='total' scope='rows' value='0' />
+            <format attr='border-style' data-class='total' scope='rows' value='none' />
+            <format attr='border-width' data-class='subtotal' scope='rows' value='0' />
+            <format attr='border-style' data-class='subtotal' scope='rows' value='none' />
+            <format attr='border-width' data-class='subtotal' scope='cols' value='0' />
+            <format attr='border-style' data-class='subtotal' scope='cols' value='none' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[avg:avg_income:qk]' num-steps='4' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#4b6fff</color>
+                <color>#6683f8</color>
+                <color>#8097f2</color>
+                <color>#98a9ec</color>
+                <color>#afbae5</color>
+                <color>#c5cadf</color>
+                <color>#d9d9d9</color>
+                <color>#d0cadb</color>
+                <color>#c6bbde</color>
+                <color>#bdabe1</color>
+                <color>#b39be4</color>
+                <color>#a98ae7</color>
+                <color>#9f7aea</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+            <format attr='background-color' data-class='total' value='#ffffff' />
+            <format attr='background-color' data-class='total' scope='rows' value='#ffffff' />
+            <format attr='border-width' data-class='subtotal' scope='rows' value='0' />
+            <format attr='border-style' data-class='subtotal' scope='rows' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='color' value='#000000' />
+          </style-rule>
+          <style-rule element='dropline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' scope='cols' value='0' />
+            <format attr='line-visibility' scope='cols' value='off' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='1' />
+            <format attr='line-visibility' scope='rows' value='on' />
+            <format attr='line-pattern-only' scope='rows' value='solid' />
+            <format attr='stroke-color' scope='rows' value='#000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0exfm2606sm7js12f65cw0i8nwht].[avg:avg_income:qk]' />
+              <size column='[federated.0exfm2606sm7js12f65cw0i8nwht].[ctd:customer_id:qk]' />
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' />
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872231444490:qk]' />
+              <lod column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontname='Tableau Semibold' fontsize='10'><![CDATA[<[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]>]]></run>
+                <run><![CDATA[
+<[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872231444490:qk]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='has-stroke' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{D27777FF-0E6D-465B-BD9A-9BC6E80530C0}' />
+    </worksheet>
+    <worksheet name='Spend By Category'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='12'>&lt;Sheet Name&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Select Dimensions' datatype='string' name='[Spend Parameter]' param-domain-type='list' role='measure' type='nominal' value='&quot;Category&quot;'>
+              <calculation class='tableau' formula='&quot;Category&quot;' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+            <column caption='Dimension Para' datatype='string' name='[Calculation_128352594910121985]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='CASE [Parameters].[Spend Parameter]&#13;&#10;WHEN &quot;Occupation&quot; THEN [occupation]&#13;&#10;WHEN &quot;Payment Type&quot; THEN [payment_type]&#13;&#10;WHEN &quot;City&quot; THEN [city]&#13;&#10;WHEN &quot;Category&quot; THEN [category]&#13;&#10;END' />
+            </column>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[Calculation_128352594910121985]' derivation='None' name='[none:Calculation_128352594910121985:nk]' pivot='key' type='nominal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[occupation]' derivation='None' name='[none:occupation:nk]' pivot='key' type='nominal' />
+            <column-instance column='[payment_type]' derivation='None' name='[none:payment_type:nk]' pivot='key' type='nominal' />
+            <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+            <column caption='Payment Type' datatype='string' name='[payment_type]' role='dimension' type='nominal' />
+            <column caption='Spend' datatype='integer' name='[spend]' role='measure' type='quantitative' />
+            <column-instance column='[spend]' derivation='Sum' name='[sum:spend:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]' filter-group='8'>
+            <groupfilter function='level-members' level='[none:category:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' filter-group='5'>
+            <groupfilter function='level-members' level='[none:occupation:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]' filter-group='9'>
+            <groupfilter function='level-members' level='[none:payment_type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='field-labels'>
+            <format attr='color' value='#ffffff' />
+            <format attr='font-family' value='Bookman Old Style' />
+            <format attr='font-weight' value='bold' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]' value='#ffffff' />
+            <format attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]' value='#ffffff' />
+            <format attr='display' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:Calculation_128352594910121985:nk]' value='false' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]' num-steps='4' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#4b6fff</color>
+                <color>#6683f8</color>
+                <color>#8097f2</color>
+                <color>#98a9ec</color>
+                <color>#afbae5</color>
+                <color>#c5cadf</color>
+                <color>#d9d9d9</color>
+                <color>#cec8db</color>
+                <color>#c3b7de</color>
+                <color>#b8a5e1</color>
+                <color>#ad93e4</color>
+                <color>#a181e7</color>
+                <color>#956eea</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='color' value='#000000' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='quick-filter'>
+            <format attr='color' value='#ffffff' />
+            <format attr='font-family' value='Bookman Old Style' />
+          </style-rule>
+          <style-rule element='quick-filter-title'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]' />
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:Calculation_128352594910121985:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontcolor='#ffffff'>&lt;</run>
+                <run fontcolor='#ffffff'>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:Calculation_128352594910121985:nk]</run>
+                <run fontcolor='#ffffff'>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]</rows>
+        <cols>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:Calculation_128352594910121985:nk]</cols>
+      </table>
+      <simple-id uuid='{943E2105-577D-43FE-B852-DA23FE46878E}' />
+    </worksheet>
+    <worksheet name='Total Customers KPI'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+            <column caption='Average Spend Per Customer' datatype='integer' name='[Calculation_1658169093206007808]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [customer_id]:sum([spend]) }' />
+            </column>
+            <column caption='Top Customer Spend' datatype='integer' name='[Calculation_1658169093208977409]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{fixed [customer_id] :sum([spend]) }' />
+            </column>
+            <column caption='Total Spend' datatype='integer' name='[Calculation_2206200872162750464]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([spend])' />
+            </column>
+            <column caption='Total Customers' datatype='integer' name='[Calculation_2206200872163016706]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNTD([customer_id])' />
+            </column>
+            <column-instance column='[Calculation_1658169093206007808]' derivation='Avg' name='[avg:Calculation_1658169093206007808:qk]' pivot='key' type='quantitative' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1658169093208977409]' derivation='Max' name='[max:Calculation_1658169093208977409:qk]' pivot='key' type='quantitative' />
+            <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+            <column caption='Spend' datatype='integer' name='[spend]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1658169093208977409]' derivation='Sum' name='[sum:Calculation_1658169093208977409:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2206200872162750464]' derivation='User' name='[usr:Calculation_2206200872162750464:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2206200872163016706]' derivation='User' name='[usr:Calculation_2206200872163016706:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[avg:Calculation_1658169093206007808:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872163016706:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162750464:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[max:Calculation_1658169093208977409:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[avg:Calculation_1658169093206007808:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872163016706:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162750464:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:Calculation_1658169093208977409:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (City)]'>
+            <groupfilter function='level-members' level='[city]' user:ui-action-filter='[Action4_FDDE4150DACD43718CDC51A4CCC286FB]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Gender)]'>
+            <groupfilter function='level-members' level='[gender]' user:ui-action-filter='[Action1_C7E2E396E83542088B21B1E00A9A300D]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Occupation)]'>
+            <groupfilter function='level-members' level='[occupation]' user:ui-action-filter='[Action2_4F84CBC7B43D49FCAC32AC2F6D0EBC08]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Gender)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (Occupation)]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[Action (City)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='409' />
+            <format attr='height' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]' value='98' />
+            <format attr='width' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]' value='408' />
+            <format attr='text-align' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[Multiple Values]' value='right' />
+            <format attr='text-format' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162750464:qk]' value='C16393%' />
+            <format attr='text-align' value='center' />
+            <format attr='color' value='#ffffff' />
+            <format attr='text-format' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[Multiple Values]' value='N' />
+            <format attr='text-format' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[avg:Calculation_1658169093206007808:qk]' value='c&quot;₹ &quot;#,##0.00;&quot;₹ &quot;-#,##0.00' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='background-color' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162750464:qk]' value='#000000' />
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162750464:qk]' value='C16393%' />
+            <format attr='text-align' value='center' />
+            <format attr='color' value='#000000' />
+            <format attr='font-family' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]' value='Bookman Old Style' />
+            <format attr='font-family' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162750464:qk]' value='Bookman Old Style' />
+          </style-rule>
+          <style-rule element='pane'>
+            <format attr='border-width' data-class='subtotal' value='0' />
+            <format attr='border-style' data-class='subtotal' value='none' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#000000' />
+            <format attr='band-size' scope='rows' value='1' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='tooltip'>
+            <format attr='color' value='#000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[Multiple Values]' />
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontsize='16'><![CDATA[<[federated.0exfm2606sm7js12f65cw0i8nwht].[Multiple Values]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true' fontname='Tableau Bold' fontsize='14'><![CDATA[<[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]>]]></run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols>[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{BBBF686D-A102-4611-9A9D-12B541FF26F3}' />
+    </worksheet>
+    <worksheet name='kpi 2nd'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+            <column caption='Top Customer Spend' datatype='integer' name='[Calculation_1658169093208977409]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{fixed [customer_id] :sum([spend]) }' />
+            </column>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column caption='Customer Id' datatype='string' name='[customer_id]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1658169093208977409]' derivation='Max' name='[max:Calculation_1658169093208977409:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[occupation]' derivation='None' name='[none:occupation:nk]' pivot='key' type='nominal' />
+            <column-instance column='[payment_type]' derivation='None' name='[none:payment_type:nk]' pivot='key' type='nominal' />
+            <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+            <column caption='Payment Type' datatype='string' name='[payment_type]' role='dimension' type='nominal' />
+            <column caption='Spend' datatype='integer' name='[spend]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]' filter-group='8'>
+            <groupfilter function='level-members' level='[none:category:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' filter-group='5'>
+            <groupfilter function='level-members' level='[none:occupation:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]' filter-group='9'>
+            <groupfilter function='level-members' level='[none:payment_type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' value='252' />
+            <format attr='height' value='92' />
+            <format attr='text-format' field='[federated.0exfm2606sm7js12f65cw0i8nwht].[max:Calculation_1658169093208977409:qk]' value='c&quot;₹ &quot;#,##0.0;&quot;₹ &quot;-#,##0.0' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='font-family' value='Bookman Old Style' />
+            <format attr='color' value='#e6e6e6' />
+            <format attr='font-weight' value='bold' />
+            <format attr='font-size' value='14' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0exfm2606sm7js12f65cw0i8nwht].[max:Calculation_1658169093208977409:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontname='Bookman Old Style'><![CDATA[<[federated.0exfm2606sm7js12f65cw0i8nwht].[max:Calculation_1658169093208977409:qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run bold='true' fontname='Bookman Old Style' fontsize='10'>Top Customer Spend</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{8829707C-A212-4A1C-BC8C-A7E46658989B}' />
+    </worksheet>
+    <worksheet name='payment type distribution'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='11'>Customer Payment Method Distribution</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+            <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+            <column-instance column='[month]' derivation='Month' name='[mn:month:ok]' pivot='key' type='ordinal' />
+            <column caption='Month' datatype='date' datatype-customized='true' name='[month]' role='dimension' type='ordinal' />
+            <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+            <column-instance column='[occupation]' derivation='None' name='[none:occupation:nk]' pivot='key' type='nominal' />
+            <column-instance column='[payment_type]' derivation='None' name='[none:payment_type:nk]' pivot='key' type='nominal' />
+            <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+            <column caption='Payment Type' datatype='string' name='[payment_type]' role='dimension' type='nominal' />
+            <column caption='Spend' datatype='integer' name='[spend]' role='measure' type='quantitative' />
+            <column-instance column='[spend]' derivation='Sum' name='[sum:spend:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]' filter-group='8'>
+            <groupfilter function='level-members' level='[none:category:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' filter-group='5'>
+            <groupfilter function='level-members' level='[none:occupation:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]' filter-group='9'>
+            <groupfilter function='level-members' level='[none:payment_type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]</column>
+            <column>[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='color' value='#ffffff' />
+            <format attr='font-weight' value='bold' />
+            <format attr='font-family' value='Bookman Old Style' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#000000' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='color' value='#000000' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='quick-filter'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='quick-filter-title'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]</rows>
+        <cols>[federated.0exfm2606sm7js12f65cw0i8nwht].[mn:month:ok]</cols>
+      </table>
+      <simple-id uuid='{31837AA6-8123-4BDF-95AE-FD50C61C29D3}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashbboard 1'>
+      <style>
+        <style-rule element='table'>
+          <format attr='background-color' value='#000000' />
+        </style-rule>
+        <style-rule element='dash-text'>
+          <format attr='text-align' id='dash-text_7' value='center' />
+        </style-rule>
+      </style>
+      <size maxheight='860' maxwidth='1900' minheight='860' minwidth='1900' sizing-mode='range' />
+      <datasources>
+        <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+        <column caption='Age Group' datatype='string' name='[age_group]' role='dimension' type='nominal' />
+        <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+        <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+        <column-instance column='[age_group]' derivation='None' name='[none:age_group:nk]' pivot='key' type='nominal' />
+        <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+        <column-instance column='[gender]' derivation='None' name='[none:gender:nk]' pivot='key' type='nominal' />
+        <column-instance column='[occupation]' derivation='None' name='[none:occupation:nk]' pivot='key' type='nominal' />
+        <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='16209' id='1' param='horz' type-v2='layout-flow' w='100800' x='-1067' y='-125'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='background-color' value='#000000' />
+          </zone-style>
+        </zone>
+        <zone h='13716' id='2' name='Total Customers KPI' show-title='false' w='100067' x='-400' y='15960'>
+          <zone-style>
+            <format attr='border-color' value='#aa00ff' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='3' />
+            <format attr='margin' value='0' />
+            <format attr='margin-left' value='7' />
+            <format attr='background-color' value='#000000' />
+          </zone-style>
+        </zone>
+        <zone h='72442' id='3' name='City-wise Average Spend' w='28474' x='158' y='29767'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='background-color' value='#000000' />
+          </zone-style>
+        </zone>
+        <zone h='43142' id='4' name='Gender-wise Spending Split' w='35800' x='28467' y='29676'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='background-color' value='#000000' />
+          </zone-style>
+        </zone>
+        <zone h='43142' id='5' name='Occupation-wise Customer Distribution' w='35600' x='64200' y='29676'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='background-color' value='#000000' />
+          </zone-style>
+        </zone>
+        <zone h='33256' id='6' name='Customer Distribution by Occupation' w='71526' x='28474' y='72907'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='background-color' value='#000000' />
+          </zone-style>
+        </zone>
+        <zone forceUpdate='true' h='6858' id='7' type-v2='text' w='69200' x='14133' y='5486'>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='28' italic='true'>Customer Profile Dashboard</run>
+          </formatted-text>
+        </zone>
+        <zone h='89139' hidden-by-user='true' id='12' param='vert' type-v2='layout-flow' w='17502' x='80628' y='7740'>
+          <zone h='17558' hidden-by-user='true' id='10' name='Customer Distribution by Occupation' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:age_group:nk]' type-v2='filter' values='database' w='17502' x='80628' y='7740'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+              <format attr='background-color' value='#ffffff' />
+            </zone-style>
+          </zone>
+          <zone h='12209' hidden-by-user='true' id='8' name='Gender-wise Spending Split' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]' type-v2='filter' values='database' w='17502' x='80628' y='25298'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+              <format attr='background-color' value='#ffffff' />
+            </zone-style>
+          </zone>
+          <zone h='20232' hidden-by-user='true' id='9' name='Occupation-wise Customer Distribution' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' type-v2='filter' values='database' w='17502' x='80628' y='37507'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+              <format attr='background-color' value='#ffffff' />
+            </zone-style>
+          </zone>
+          <zone h='20232' hidden-by-user='true' id='11' name='City-wise Average Spend' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:city:nk]' type-v2='filter' values='database' w='17502' x='80628' y='57739'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+              <format attr='background-color' value='#ffffff' />
+            </zone-style>
+          </zone>
+        </zone>
+        <zone h='6977' id='13' type-v2='dashboard-object' w='6421' x='84211' y='5000'>
+          <button action='' active-visual-state-index='1'>
+            <toggle-action>tabdoc:toggle-button-click-action window-id=&quot;{4161C568-8E70-42EA-89BF-38B509CCA5ED}&quot; zone-id=&quot;13&quot; zone-ids=[12]</toggle-action>
+            <button-visual-state />
+            <button-visual-state>
+              <image-path>Image/filte.jpeg</image-path>
+            </button-visual-state>
+          </button>
+        </zone>
+        <zone h='7674' id='15' type-v2='dashboard-object' w='8211' x='91737' y='4767'>
+          <button action='tabdoc:goto-sheet window-id=&quot;{DF3B84B2-B28D-49F6-A0CB-234770404918}&quot;'>
+            <button-visual-state>
+              <image-path>Image/arrow.jpeg</image-path>
+            </button-visual-state>
+          </button>
+        </zone>
+        <zone h='7674' id='16' type-v2='dashboard-object' w='9211' x='3526' y='4302'>
+          <button action='tabdoc:goto-sheet window-id=&quot;{EC7B7C90-1794-4BD9-96DE-7CD8A9720CB7}&quot;'>
+            <button-visual-state>
+              <image-path>Image/arr.jpeg</image-path>
+            </button-visual-state>
+          </button>
+        </zone>
+      </zones>
+      <simple-id uuid='{CF753BE9-67EF-45CA-873B-096CF260DDB2}' />
+    </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 2'>
+      <style>
+        <style-rule element='table'>
+          <format attr='background-color' value='#000000' />
+        </style-rule>
+        <_.fcp.IndividualControlFormatting.true...style-rule element='parameter-ctrl'>
+          <_.fcp.IndividualControlFormatting.true...format attr='color' field='[Parameters].[Spend Parameter]' value='#ffffff' />
+          <_.fcp.IndividualControlFormatting.true...format attr='font-weight' field='[Parameters].[Spend Parameter]' value='bold' />
+          <_.fcp.IndividualControlFormatting.true...format attr='border-style' field='[Parameters].[Spend Parameter]' value='solid' />
+        </_.fcp.IndividualControlFormatting.true...style-rule>
+        <_.fcp.IndividualControlFormatting.true...style-rule element='parameter-ctrl-title'>
+          <_.fcp.IndividualControlFormatting.true...format attr='font-weight' field='[Parameters].[Spend Parameter]' value='bold' />
+          <_.fcp.IndividualControlFormatting.true...format attr='font-family' field='[Parameters].[Spend Parameter]' value='Bookman Old Style' />
+          <_.fcp.IndividualControlFormatting.true...format attr='font-size' field='[Parameters].[Spend Parameter]' value='9' />
+        </_.fcp.IndividualControlFormatting.true...style-rule>
+      </style>
+      <size maxheight='860' maxwidth='1900' minheight='560' minwidth='420' sizing-mode='range' />
+      <datasources>
+        <datasource name='Parameters' />
+        <datasource caption='fact_spends+ (project)' name='federated.0exfm2606sm7js12f65cw0i8nwht' />
+      </datasources>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Select Dimensions' datatype='string' name='[Spend Parameter]' param-domain-type='list' role='measure' type='nominal' value='&quot;Category&quot;'>
+          <calculation class='tableau' formula='&quot;Category&quot;' />
+          <members>
+            <member value='&quot;Occupation&quot;' />
+            <member value='&quot;City&quot;' />
+            <member value='&quot;Payment Type&quot;' />
+            <member value='&quot;Category&quot;' />
+          </members>
+        </column>
+      </datasource-dependencies>
+      <datasource-dependencies datasource='federated.0exfm2606sm7js12f65cw0i8nwht'>
+        <column caption='Category' datatype='string' name='[category]' role='dimension' type='nominal' />
+        <column-instance column='[category]' derivation='None' name='[none:category:nk]' pivot='key' type='nominal' />
+        <column-instance column='[occupation]' derivation='None' name='[none:occupation:nk]' pivot='key' type='nominal' />
+        <column-instance column='[payment_type]' derivation='None' name='[none:payment_type:nk]' pivot='key' type='nominal' />
+        <column caption='Occupation' datatype='string' name='[occupation]' role='dimension' type='nominal' />
+        <column caption='Payment Type' datatype='string' name='[payment_type]' role='dimension' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='17603' id='1' param='horz' type-v2='layout-flow' w='97586' x='664' y='2996'>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='background-color' value='#000000' />
+          </zone-style>
+        </zone>
+        <zone forceUpdate='true' h='13483' id='2' type-v2='text' w='60229' x='23235' y='3620'>
+          <formatted-text>
+            <run bold='true' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='22' italic='true'>Spending Behavior and Payment Insights</run>
+          </formatted-text>
+        </zone>
+        <zone h='79151' id='3' name='payment type distribution' w='22437' x='76977' y='18727'>
+          <zone-style>
+            <format attr='border-color' value='#aa00ff' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='34707' id='4' name='Monthly Spend Trend' w='50439' x='23843' y='63795'>
+          <zone-style>
+            <format attr='border-color' value='#aa00ff' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='59426' id='5' name='Spend By Category' w='21910' x='820' y='39825'>
+          <zone-style>
+            <format attr='border-color' value='#aa00ff' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='33208' id='6' name='Occupation wise spending' w='24839' x='23960' y='25718'>
+          <zone-style>
+            <format attr='border-color' value='#aa00ff' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='12484' id='7' name='kpi 2nd' show-title='false' w='17937' x='3341' y='25593'>
+          <zone-style>
+            <format attr='border-color' value='#aa00ff' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='21223' id='8' name='Occupation wise spending' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' type-v2='filter' values='database' w='14294' x='61101' y='39825'>
+          <zone-style>
+            <format attr='border-color' value='#aa00ff' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='18976' id='9' name='payment type distribution' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]' type-v2='filter' values='database' w='12068' x='62449' y='19476'>
+          <zone-style>
+            <format attr='border-color' value='#aa00ff' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='32210' id='10' name='Spend By Category' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:category:nk]' type-v2='filter' values='database' w='9373' x='50791' y='25593'>
+          <zone-style>
+            <format attr='border-color' value='#aa00ff' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='1' />
+          </zone-style>
+        </zone>
+        <zone h='8989' id='11' type-v2='dashboard-object' w='12016' x='1348' y='6367'>
+          <button action='tabdoc:goto-sheet window-id=&quot;{4161C568-8E70-42EA-89BF-38B509CCA5ED}&quot;'>
+            <button-visual-state>
+              <image-path>Image/arr.jpeg</image-path>
+            </button-visual-state>
+          </button>
+        </zone>
+        <zone h='7116' id='12' mode='compact' param='[Parameters].[Spend Parameter]' type-v2='paramctrl' w='8792' x='12544' y='42197' />
+      </zones>
+      <simple-id uuid='{DCAB139B-1592-47B6-B6CB-B87EF6CDA4FD}' />
+    </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Main'>
+      <style>
+        <style-rule element='table'>
+          <format attr='background-color' value='#000000' />
+        </style-rule>
+      </style>
+      <size maxheight='860' maxwidth='1900' minheight='560' minwidth='420' sizing-mode='range' />
+      <zones>
+        <zone h='33333' id='1' param='horz' type-v2='layout-flow' w='52931' x='21981' y='24345'>
+          <zone forceUpdate='true' h='33333' id='2' type-v2='text' w='52931' x='21981' y='24345'>
+            <formatted-text>
+              <run bold='true' fontalignment='1' fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='20'>Mitron Bank – Business Spending Insights Dashboard</run>
+            </formatted-text>
+            <zone-style>
+              <format attr='border-color' value='#aa00ff' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='2' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+        </zone>
+        <zone h='11735' id='3' type-v2='dashboard-object' w='31594' x='13775' y='70037'>
+          <button action='tabdoc:goto-sheet window-id=&quot;{4161C568-8E70-42EA-89BF-38B509CCA5ED}&quot;' button-type='text'>
+            <button-visual-state>
+              <caption>Customer Profile Dashboard</caption>
+              <button-caption-font-style fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='15' />
+              <format attr='background-color' value='#000000' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='2' />
+              <format attr='border-color' value='#aa00ff' />
+            </button-visual-state>
+          </button>
+        </zone>
+        <zone h='11735' id='4' type-v2='dashboard-object' w='36225' x='54631' y='70537'>
+          <button action='tabdoc:goto-sheet window-id=&quot;{DF3B84B2-B28D-49F6-A0CB-234770404918}&quot;' button-type='text'>
+            <button-visual-state>
+              <caption>Spending Behavior and Payment Insights</caption>
+              <button-caption-font-style fontcolor='#ffffff' fontname='Bookman Old Style' fontsize='15' />
+              <format attr='background-color' value='#000000' />
+              <format attr='border-style' value='solid' />
+              <format attr='border-width' value='2' />
+              <format attr='border-color' value='#aa00ff' />
+            </button-visual-state>
+          </button>
+        </zone>
+      </zones>
+      <simple-id uuid='{C36793F3-094E-47BE-A74D-D27BF97959E8}' />
+    </dashboard>
+    <dashboard name='Story' type='storyboard'>
+      <style>
+        <style-rule element='story-point-caption'>
+          <format attr='width' value='849' />
+        </style-rule>
+      </style>
+      <size maxheight='950' maxwidth='1800' minheight='950' minwidth='1800' preset-index='9' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='2' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98316' id='9' param='vert' removable='false' type-v2='layout-flow' w='99112' x='444' y='842'>
+            <zone h='98316' id='1' param='vert' removable='false' type-v2='layout-flow' w='99112' x='444' y='842'>
+              <zone h='10632' id='4' is-fixed='true' paired-zone-id='5' removable='false' type-v2='flipboard-nav' w='99112' x='444' y='842' />
+              <zone h='87684' id='5' paired-zone-id='4' removable='false' type-v2='flipboard' w='99112' x='444' y='11474'>
+                <flipboard active-id='1' nav-type='caption' show-nav-arrows='true'>
+                  <story-points>
+                    <story-point caption='The customer profile dashboard gives an overview of who our customers are across five major cities.&#10;Total spend and average spend KPIs show strong engagement, indicating high potential for a targeted credit card launch.&#10;Bengaluru and Hyderabad emerge as the cities with the highest spending, making them ideal markets for early rollout.&#10;Salaried IT employees and other working professionals contribute the most to total spend, positioning them as the primary target segment.&#10;Customers aged 25–35 form the largest and most active spending age group, aligning perfectly with digital-first financial products.&#10;Gender-based spending remains balanced, with male customers showing a slight edge in total spend.&#10;Overall, the dashboard highlights a young, urban, and digitally active customer base that is well-suited for a reward-driven credit card offering.' captured-sheet='Dashbboard 1' id='1' />
+                    <story-point caption='The dashboard provides a detailed view of how customers spend across product categories, months, and payment methods.&#10;Electronics, Travel, and Groceries emerge as the top spending categories, making them strong candidates for category-based credit card rewards.&#10;Salaried IT employees and other working professionals continue to lead in overall spend, reinforcing them as the primary target segment.&#10;Monthly spending shows a clear rise between June and September, reflecting seasonal and festive shopping behavior.&#10;UPI and Credit Cards are the most preferred payment modes, indicating a strong shift toward fast and digital transactions.&#10;Category-wise and occupation-wise patterns highlight that customers prefer convenience and lifestyle-oriented purchases.&#10;Overall, the dashboard emphasizes the need for a digital, reward-focused credit card tailored to top categories and high-spending salaried customers.' captured-sheet='Dashboard 2' id='2' />
+                  </story-points>
+                </flipboard>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <simple-id uuid='{43A83A6B-06D3-45A0-9969-50BCCD5E476C}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='37'>
+    <window class='dashboard' maximized='true' name='Dashbboard 1'>
+      <viewpoints>
+        <viewpoint name='City-wise Average Spend'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Customer Distribution by Occupation' />
+        <viewpoint name='Gender-wise Spending Split'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Occupation-wise Customer Distribution' />
+        <viewpoint name='Total Customers KPI' />
+      </viewpoints>
+      <active id='15' />
+      <simple-id uuid='{4161C568-8E70-42EA-89BF-38B509CCA5ED}' />
+    </window>
+    <window class='dashboard' name='Dashboard 2'>
+      <viewpoints>
+        <viewpoint name='Monthly Spend Trend'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Occupation wise spending'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Spend By Category'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='kpi 2nd' />
+        <viewpoint name='payment type distribution'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='11' />
+      <simple-id uuid='{DF3B84B2-B28D-49F6-A0CB-234770404918}' />
+    </window>
+    <window class='dashboard' name='Main'>
+      <viewpoints />
+      <active id='3' />
+      <simple-id uuid='{EC7B7C90-1794-4BD9-96DE-7CD8A9720CB7}' />
+    </window>
+    <window class='dashboard' name='Story'>
+      <viewpoints />
+      <active id='-1' />
+      <simple-id uuid='{F7028D47-A3DC-414F-8CEA-C5C20E3C50C9}' />
+    </window>
+    <window class='worksheet' hidden='true' name='City-wise Average Spend'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{49D509B9-31E6-4B26-8D78-20EC7C622179}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Customer Distribution by Occupation'>
+      <cards>
+        <edge name='left'>
+          <strip size='128'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='24'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[usr:Calculation_2206200872162869249:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{185B60AC-608E-4870-8013-ED09620E4123}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Gender-wise Spending Split'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='128'>
+            <card pane-specification-id='2' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:gender:nk]&#10;[federated.0exfm2606sm7js12f65cw0i8nwht].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{0BA5D229-54EE-4B99-8E39-80B00F89A6E9}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Monthly Spend Trend'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:Calculation_1658169093217947651:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{15E5C5CB-E6FF-4E14-83B0-EA3B8F130D98}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Occupation wise spending'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:occupation:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{1FE57E09-3A17-4564-96C3-FC2F15E03A0A}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Occupation-wise Customer Distribution'>
+      <cards>
+        <edge name='left'>
+          <strip size='128'>
+            <card type='filters' />
+            <card type='marks' />
+            <card type='pages' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='128'>
+            <card pane-specification-id='0' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[avg:avg_income:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{0697C4D7-199F-4DC4-B4C8-4AD732A62127}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Spend By Category'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[sum:spend:qk]' type='color' />
+            <card mode='compact' param='[Parameters].[Spend Parameter]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C9A8CF37-51D8-4882-97E1-60BCA96B52E2}' />
+    </window>
+    <window class='worksheet' hidden='true' name='Total Customers KPI'>
+      <cards>
+        <edge name='left'>
+          <strip size='128'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B5D90516-DC16-443E-836B-32AF25CFB75B}' />
+    </window>
+    <window class='worksheet' hidden='true' name='kpi 2nd'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{589415FD-7D91-4B5D-81F0-69D13420685D}' />
+    </window>
+    <window class='worksheet' hidden='true' name='payment type distribution'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0exfm2606sm7js12f65cw0i8nwht].[none:payment_type:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B013EA5B-22D6-4D16-977B-6055724B0910}' />
+    </window>
+  </windows>
+</workbook>
